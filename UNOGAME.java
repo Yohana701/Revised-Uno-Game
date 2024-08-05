@@ -36,6 +36,7 @@ public class UNOGAME {
             System.out.println("Top card on discard pile: " + game.getDiscardPile().peek());
             System.out.println("Your hand: " + currentPlayer.getHand());
 
+
             boolean validMove = false;
             while (!validMove) {
                 System.out.println("Enter the card you want to play (e.g., 'red 5') or 'draw' to draw a card:");
@@ -55,6 +56,10 @@ public class UNOGAME {
                                 if (playedCard.getNumber().equals("wild") || playedCard.getNumber().equals("draw4")) {
                                     String newColor = chooseColor(scanner);
                                     game.getDiscardPile().peek().setColor(newColor);
+                                }
+                                // Check for UNO
+                                if (currentPlayer.getHand().size() == 1) {
+                                    System.out.println(currentPlayer.getName() + " says UNO!!");
                                 }
 
                                 validMove = true;
@@ -129,3 +134,4 @@ public class UNOGAME {
         }
     }
 }
+
